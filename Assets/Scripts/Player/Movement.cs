@@ -102,4 +102,14 @@ public class Movement : MonoBehaviour
         _currentSpeed = walkSpeed;
         Debug.Log("WALK");
     }
+
+    public void Aim()
+    {
+        Debug.Log("Aim");
+    }
+
+    public void Shoot()
+    {
+        Debug.Log("Shoot");
+    }
 }

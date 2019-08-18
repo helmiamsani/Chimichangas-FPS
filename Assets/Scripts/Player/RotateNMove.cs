@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Aim : MonoBehaviour
+public class RotateNMove : MonoBehaviour
 {
+    public Joystick joystick;
+
     // Start is called before the first frame update
     void Start()
     {
