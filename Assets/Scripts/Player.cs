@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public float walkSpeed = 5f;
     public float runSpeed;
     public float jumpSpeed = 8f;
     public float gravity = -30f;
     public Joystick joystick;
+    public Combat combat;
 
     private float _currentSpeed;
     private float _currentJumpHeight;
@@ -23,6 +24,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        combat = GetComponent<Combat>();
         _canMove = true;
         _isJumping = false;
         _currentSpeed = walkSpeed;
@@ -94,13 +96,11 @@ public class Movement : MonoBehaviour
     public void Run()
     {
         _currentSpeed = runSpeed;
-        Debug.Log("RUN");
     }
 
     public void Walk()
     {
         _currentSpeed = walkSpeed;
-        Debug.Log("WALK");
     }
 
     public void Aim()
@@ -110,6 +110,6 @@ public class Movement : MonoBehaviour
 
     public void Shoot()
     {
-        Debug.Log("Shoot");
+        combat.Shoot();
     }
 }
