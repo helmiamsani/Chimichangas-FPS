@@ -29,25 +29,25 @@ public class SwipeRotation : MonoBehaviour
         // Right Part for Rotation
         Rect rBounds = new Rect(8f * scrW,0, Screen.width, Screen.height);
         // Left Part for Rotation
-        Rect lBounds = new Rect(0, 0, Screen.width/2, Screen.height);
+        //Rect lBounds = new Rect(0, 0, Screen.width/2, Screen.height);
 
         if (Input.touchCount > 0)
         {
-            Touch rTouch = Input.GetTouch(0);
+            Touch frstTouch = Input.GetTouch(0);
 
-            if (rBounds.Contains(rTouch.position))
+            if (rBounds.Contains(frstTouch.position))
             {
-                Rotate(rTouch);
+                Rotate(frstTouch);
             }
         }
 
         if (Input.touchCount > 1)
         {
-            Touch lTouch = Input.GetTouch(1);
+            Touch scndTouch = Input.GetTouch(1);
 
-            if (rBounds.Contains(rBounds.position))
+            if (rBounds.Contains(scndTouch.position))
             {
-                Rotate(lTouch);
+                Rotate(scndTouch);
             }
         }
     }
