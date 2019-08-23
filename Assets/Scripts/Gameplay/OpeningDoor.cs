@@ -5,12 +5,13 @@ using UnityEngine;
 public class OpeningDoor : MonoBehaviour
 {
     public GameObject player;
-    public Transform mainDoor;
+    public Transform door;
 
     public float doorSpeed;
+    public float closeDoorAfter = 8f;
 
     private bool isPlyrInside = false;
-    public float time;
+    private float time;
 
     // Start is called before the first frame update
     void Start()
@@ -21,19 +22,22 @@ public class OpeningDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-
         if (isPlyrInside)
         {
-            mainDoor.Translate(new Vector3(-doorSpeed, 0, 0) * Time.deltaTime);
+            time += Time.deltaTime;
+
+            door.Translate(new Vector3(doorSpeed, 0, 0) * Time.deltaTime);
+
+            if (time > closeDoorAfter)
+            {
+                isPlyrInside = false;
+                //Debug.Log("Time is out Main Door Should Stop");
+            }
         }
+
         else if(!isPlyrInside)
         {
-            Vector3 stopPos = new Vector3(-8f, 0.4f, 11f);
-            if (mainDoor.position == stopPos)
-            {
-                doorSpeed = 0;
-            }
+            return;
         }
     }
 
@@ -41,17 +45,7 @@ public class OpeningDoor : MonoBehaviour
     {
         if (player)
         {
-            if(time <= 10f)
-            {
-                isPlyrInside = true;
-                Debug.Log("Player is inside the range");
-            }
-
-            if (time > 10f)
-            {
-                isPlyrInside = false;
-                Debug.Log("Time is out Main Door Should Stop");
-            }
+            isPlyrInside = true;
         }
     }
 }
