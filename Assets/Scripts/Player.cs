@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public float gravity = -30f;
     public Joystick joystick;
     public Combat combat;
+    public Light lampu;
 
     private float _currentSpeed;
     private float _currentJumpHeight;
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     //private bool _walk; ~~~~TESTING~~~~
     //private bool _run; ~~~~TESTING~~~~
     private static bool _canMove;
+    private bool islampOn = false;
     private CharacterController controller;
     private Vector3 moveDirection;
 
@@ -25,6 +27,8 @@ public class Player : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         combat = GetComponent<Combat>();
+        lampu = GameObject.FindGameObjectWithTag("FlashLight").GetComponent<Light>();
+        lampu.intensity = 0;
         _canMove = true;
         _isJumping = false;
         _currentSpeed = walkSpeed;
@@ -66,6 +70,18 @@ public class Player : MonoBehaviour
 
             moveDirection.y += gravity * Time.deltaTime;
             controller.Move(moveDirection * Time.deltaTime);
+
+            #region light control
+            if (islampOn)
+            {
+                lampu.intensity = 20;
+            }
+
+            if (!islampOn)
+            {
+                lampu.intensity = 0;
+            }
+            #endregion
         }
     }
 
@@ -103,9 +119,14 @@ public class Player : MonoBehaviour
         _currentSpeed = walkSpeed;
     }
 
-    public void Aim()
+    public void LightOn()
     {
-        Debug.Log("Aim");
+        islampOn = true;
+    }
+
+    public void LightOff()
+    {
+        islampOn = false;
     }
 
     public void Shoot()

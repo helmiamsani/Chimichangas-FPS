@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shootable
+  - FlashLight
+  - Small Damage
   layers:
   - Default
   - TransparentFX

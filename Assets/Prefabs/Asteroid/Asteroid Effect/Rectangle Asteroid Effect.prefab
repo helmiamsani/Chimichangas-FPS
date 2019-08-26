@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 8040629527406522337}
   - component: {fileID: 4288818691436594878}
   - component: {fileID: 3315806850443166917}
+  - component: {fileID: 8790433881216375329}
+  - component: {fileID: 1614295849}
   m_Layer: 0
   m_Name: Rectangle Asteroid Effect
-  m_TagString: Untagged
+  m_TagString: Small Damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2716853921280674930}
-  m_LocalRotation: {x: -0, y: -0.6876465, z: -0, w: 0.72604567}
+  m_LocalRotation: {x: 0, y: -0.68764526, z: 0, w: 0.72604686}
   m_LocalPosition: {x: 24.06, y: 1.94, z: -33.21}
-  m_LocalScale: {x: 0.19155782, y: 0.19155774, z: 0.1915577}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -4698,3 +4700,32 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!65 &8790433881216375329
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2716853921280674930}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 196.58044, y: 60, z: 60}
+  m_Center: {x: -3.2901952, y: 0, z: -1.8780652e-15}
+--- !u!114 &1614295849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2716853921280674930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bed68ff620e63f74f81b6f2b4fde3dd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  plyrHealth: {fileID: 0}
+  damage: 1
+  isPlayer: 0

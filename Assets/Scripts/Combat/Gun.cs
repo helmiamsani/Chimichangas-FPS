@@ -43,8 +43,8 @@ public class Gun : Weapon
         Vector3 direction = cam.transform.forward;
 
         GameObject clone = Instantiate(bulletPrefabs, shotOrigin.position, Quaternion.identity);
-        Bullets bullet = clone.GetComponent<Bullets>();
-        bullet.Fire(direction);
+        //Bullets bullet = clone.GetComponent<Bullets>();
+        //bullet.Fire(direction);
 
         base.Attack();
     }
