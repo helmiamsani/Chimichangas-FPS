@@ -100,7 +100,7 @@ Transform:
   m_LocalPosition: {x: 0.02599907, y: 0.65999997, z: -0.026000977}
   m_LocalScale: {x: 1, y: 0.7142857, z: 1}
   m_Children:
-  - {fileID: 571891494135901258}
+  - {fileID: 5367464200701843586}
   - {fileID: 2785634909258624419}
   m_Father: {fileID: 3112905877500824150}
   m_RootOrder: 1
@@ -320,7 +320,6 @@ MonoBehaviour:
   jumpSpeed: 8
   gravity: -30
   joystick: {fileID: 0}
-  combat: {fileID: 2845661031593694442}
   lampu: {fileID: 3743443751044220957}
 --- !u!114 &2845661031593694442
 MonoBehaviour:
@@ -363,7 +362,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29187c6ad0a84243b8fe8e12f873812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recover: 0
   health: {fileID: 0}
   asteroidSmokes: []
 --- !u!1 &3112905877665789599
@@ -458,7 +456,7 @@ Transform:
   m_Father: {fileID: 3112905877500824150}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &4051755987268371500
+--- !u!1001 &8478147873963094244
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -542,9 +540,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ebc9f839149224a853ba5b3fb909ff, type: 3}
---- !u!4 &571891494135901258 stripped
+--- !u!4 &5367464200701843586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4599722038590449766, guid: c9ebc9f839149224a853ba5b3fb909ff,
     type: 3}
-  m_PrefabInstance: {fileID: 4051755987268371500}
+  m_PrefabInstance: {fileID: 8478147873963094244}
   m_PrefabAsset: {fileID: 0}

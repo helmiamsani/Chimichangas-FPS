@@ -6,11 +6,13 @@ public class SmokeDamage : MonoBehaviour
 {
     public GameObject player;
     public Health plyrHealth;
+    public float damage;
 
     public bool isPlayer;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
         plyrHealth = player.GetComponent<Health>();
         isPlayer = false;
     }
@@ -20,12 +22,8 @@ public class SmokeDamage : MonoBehaviour
     {
         if (isPlayer)
         {
-            plyrHealth.currentHealth -= Time.deltaTime; 
-        }
-
-        else if (!isPlayer)
-        {
-            return;
+            plyrHealth.currentHealth -= Time.deltaTime * damage;
+            Debug.Log("Should be Updated Right");
         }
     }
 
@@ -34,11 +32,6 @@ public class SmokeDamage : MonoBehaviour
         if (player)
         {
             isPlayer = true;
-        }
-
-        if (!player)
-        {
-            isPlayer = false;
         }
     }
 

@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Shootable
   - FlashLight
-  - Small Damage
+  - SmokeDamage
   layers:
   - Default
   - TransparentFX

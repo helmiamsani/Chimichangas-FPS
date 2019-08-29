@@ -11,6 +11,11 @@ public class Health : MonoBehaviour
     public Slider healthSlider;
     public Image healthFill;
 
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
+
     // Update is called once per frame
     void Update()
     {

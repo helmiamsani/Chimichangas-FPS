@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     public float jumpSpeed = 8f;
     public float gravity = -30f;
     public Joystick joystick;
-    public Combat combat;
     public Light lampu;
 
     private float _currentSpeed;
@@ -26,7 +25,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        combat = GetComponent<Combat>();
         lampu = GameObject.FindGameObjectWithTag("FlashLight").GetComponent<Light>();
         lampu.intensity = 0;
         _canMove = true;
@@ -127,10 +125,5 @@ public class Player : MonoBehaviour
     public void LightOff()
     {
         islampOn = false;
-    }
-
-    public void Shoot()
-    {
-        combat.Shoot();
     }
 }

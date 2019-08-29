@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class Combat : MonoBehaviour
 {
-    public Weapon currentWeapon;
+    public Gun currentWeapon;
 
-    // Update is called once per frame
-    void Update()
+    public void HoldShoot()
     {
-    }
-
-    public void Shoot()
-    {
-        if (currentWeapon && currentWeapon.canAttack)
+        if (currentWeapon)
         {
             currentWeapon.Attack();
+        }
+    }
+
+    public void ShootOff()
+    {
+        if (currentWeapon)
+        {
+            currentWeapon.NotAttacked();
         }
     }
 }

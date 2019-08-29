@@ -1,51 +1,70 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Gun : Weapon
+public class Gun : MonoBehaviour
 {
-    public int maxReserve = 300, maxClip = 30;
-    public float spread = 2f, recoil = 1f;
+    public int maxReserve = 80;
+    public int currentReserve = 0;
+
     public Transform shotOrigin;
     public GameObject bulletPrefabs;
-
-    public int currentReserve = 0, currentClip = 0;
+    public Text textUI;
+    private GameObject bulletClone;
+    private bool isAttacking;
+    private bool instantiateBullet;
 
     // Start is called before the first frame update
     void Start()
     {
+        currentReserve = maxReserve;
+        isAttacking = false;
+        instantiateBullet = false;
     }
 
-    public void Reload()
+    private void FixedUpdate()
     {
-        if(currentReserve > 0)
+        if (isAttacking)
         {
-            if(currentReserve >= maxClip)
-            {
-                int difference = maxClip - currentClip;
-                currentReserve -= difference;
-                currentClip = maxClip;
-            }
+            currentReserve--;
 
-            if(currentReserve < maxClip)
+            if(currentReserve <= 0)
             {
-                currentClip += currentReserve;
-                currentReserve -= currentReserve;
+                currentReserve = 0;
+                Destroy(bulletClone);
             }
         }
+
+        else if (!isAttacking)
+        {
+            currentReserve++;
+
+            if (currentReserve >= maxReserve)
+            {
+                currentReserve = maxReserve;
+            }
+        }
+        textUI.text = currentReserve.ToString();
     }
 
-    public override void Attack()
+    public void Attack()
     {
-        currentClip--;
-
+        isAttacking = true;
         Camera cam = Camera.main;
         Vector3 direction = cam.transform.forward;
 
-        GameObject clone = Instantiate(bulletPrefabs, shotOrigin.position, Quaternion.identity);
-        //Bullets bullet = clone.GetComponent<Bullets>();
-        //bullet.Fire(direction);
+        if (instantiateBullet == false)
+        {
+            bulletClone = Instantiate(bulletPrefabs, shotOrigin.position, Quaternion.LookRotation(direction));
+            instantiateBullet = true;
+        }
+    }
 
-        base.Attack();
+    public void NotAttacked()
+    {
+        isAttacking = false;
+        instantiateBullet = false;
+        Destroy(bulletClone);
     }
 }

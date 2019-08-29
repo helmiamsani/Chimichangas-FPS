@@ -5,7 +5,8 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public int damage = 10;
-    public float attackRange = 10f, attackRate = 1f;
+    //public float attackRange; 
+    public float attackRate;
     public bool canAttack = false;
 
     private float _attackTimer = 0f;

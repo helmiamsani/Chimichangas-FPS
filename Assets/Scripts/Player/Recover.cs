@@ -11,7 +11,7 @@ public class Recover : MonoBehaviour
     void Start()
     {
         health = GetComponent<Health>();
-        asteroidSmokes = GameObject.FindGameObjectsWithTag("Small Damage");
+        asteroidSmokes = GameObject.FindGameObjectsWithTag("SmokeDamage");
     }
 
     // Update is called once per frame
@@ -19,9 +19,9 @@ public class Recover : MonoBehaviour
     {
         foreach(GameObject asteroidSmoke in asteroidSmokes)
         {
-            SmokeDamage smallSmkDamage = asteroidSmoke.GetComponent<SmokeDamage>();
+            SmokeDamage smkDamage = asteroidSmoke.GetComponent<SmokeDamage>();
 
-            if (!smallSmkDamage.isPlayer)
+            if (!smkDamage.isPlayer)
             {
                 health.currentHealth += Time.deltaTime;
 
