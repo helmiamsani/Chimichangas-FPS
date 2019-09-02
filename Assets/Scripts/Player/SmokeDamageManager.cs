@@ -10,9 +10,6 @@ public class SmokeDamageManager : MonoBehaviour
     public GameObject asteroidSmoke;
     public GameObject[] asteroidSmokes;
 
-    [Space]
-    public bool playerInsideSmoke;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,35 +23,28 @@ public class SmokeDamageManager : MonoBehaviour
         if (asteroidSmoke)
         {
             // When inside asteroid smokes collider
-            if (asteroidSmoke.ToString() == "Asteroid Smokes (UnityEngine.GameObject)")
+            if (asteroidSmoke.ToString() == "Asteroid Smokes (UnityEngine.GameObject)" || asteroidSmoke.ToString() == "Asteroid Smokes 3 (UnityEngine.GameObject)")
             {
                 asteroidSmokes[0] = asteroidSmoke;
 
-                if (asteroidSmokes[1] != null)
+                if(asteroidSmokes[1] != null)
                 {
-                    SmokeDamage smkDamage0 = asteroidSmokes[1].GetComponent<SmokeDamage>();
-                    smkDamage0.damage = 0;
+                    asteroidSmokes[1] = null;
                 }
-            }
+            }            
 
             // When inside asteroid smokes 2 collider
-            else if (asteroidSmoke.ToString() == "Asteroid Smokes 2 (UnityEngine.GameObject)")
+            else if (asteroidSmoke.ToString() == "Asteroid Smokes 2 (UnityEngine.GameObject)" || asteroidSmoke.ToString() == "Asteroid Smokes 4 (UnityEngine.GameObject)")
             {
                 asteroidSmokes[1] = asteroidSmoke;
-
-                if (asteroidSmokes[1] != null)
-                {
-                    SmokeDamage smkDamage0 = asteroidSmokes[1].GetComponent<SmokeDamage>();
-                    smkDamage0.damage = 3;
-                }
+                asteroidSmokes[0] = null;
             }
-
-            playerInsideSmoke = true;
         }
 
         if (!asteroidSmoke)
         {
-            playerInsideSmoke = false;
+            asteroidSmokes[0] = null;
+            asteroidSmokes[1] = null;
         }
 
     }
