@@ -25,7 +25,11 @@ public class SmokeDamage : MonoBehaviour
         {
             plyrHealth.currentHealth -= Time.deltaTime * damage;
             smkDmgMngr.asteroidSmoke = gameObject;
-            Debug.Log("Should be Updated Right");
+
+            if (plyrHealth.currentHealth <= 0)
+            {
+                plyrHealth.currentHealth = 0;
+            }
         }
     }
 

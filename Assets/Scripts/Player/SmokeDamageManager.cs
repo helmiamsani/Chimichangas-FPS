@@ -17,7 +17,7 @@ public class SmokeDamageManager : MonoBehaviour
     void Start()
     {
         recover = GetComponent<Recover>();
-        asteroidSmokes = new GameObject[2];
+        asteroidSmokes = new GameObject[2];       
     }
 
     // Update is called once per frame
@@ -25,7 +25,29 @@ public class SmokeDamageManager : MonoBehaviour
     {
         if (asteroidSmoke)
         {
-            StartCoroutine(whichAsteroid(asteroidSmoke));
+            // When inside asteroid smokes collider
+            if (asteroidSmoke.ToString() == "Asteroid Smokes (UnityEngine.GameObject)")
+            {
+                asteroidSmokes[0] = asteroidSmoke;
+
+                if (asteroidSmokes[1] != null)
+                {
+                    SmokeDamage smkDamage0 = asteroidSmokes[1].GetComponent<SmokeDamage>();
+                    smkDamage0.damage = 0;
+                }
+            }
+
+            // When inside asteroid smokes 2 collider
+            else if (asteroidSmoke.ToString() == "Asteroid Smokes 2 (UnityEngine.GameObject)")
+            {
+                asteroidSmokes[1] = asteroidSmoke;
+
+                if (asteroidSmokes[1] != null)
+                {
+                    SmokeDamage smkDamage0 = asteroidSmokes[1].GetComponent<SmokeDamage>();
+                    smkDamage0.damage = 3;
+                }
+            }
 
             playerInsideSmoke = true;
         }
@@ -35,13 +57,5 @@ public class SmokeDamageManager : MonoBehaviour
             playerInsideSmoke = false;
         }
 
-    }
-
-    IEnumerator whichAsteroid(GameObject whichSmoke)
-    {
-        GameObject currentSmoke = whichSmoke;
-        asteroidSmokes[0] = whichSmoke;
-
-        yield return new WaitForEndOfFrame();
     }
 }
