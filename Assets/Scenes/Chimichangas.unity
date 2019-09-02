@@ -972,7 +972,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 187987230}
+      objectReference: {fileID: 187987224}
     - target: {fileID: 1476267834379102970, guid: 1066d11b997cac747b684bc6c11cf080,
         type: 3}
       propertyPath: plyrHealth
@@ -1558,6 +1558,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc73d0460e5cdb4f90cfbdb20a7290d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &187987228 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 187987225, guid: 60f55613543c1c6429040bc8e9d8d713,
+    type: 3}
+  m_PrefabInstance: {fileID: 3112905877583953738}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187987224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29187c6ad0a84243b8fe8e12f873812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &187987229 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3112905877500824151, guid: 60f55613543c1c6429040bc8e9d8d713,
@@ -1570,12 +1582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953fecae4f6f41948b3fc55e04a12491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &187987230 stripped
-CapsuleCollider:
-  m_CorrespondingSourceObject: {fileID: 3112905877500824147, guid: 60f55613543c1c6429040bc8e9d8d713,
-    type: 3}
-  m_PrefabInstance: {fileID: 3112905877583953738}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &187987232 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 187987232, guid: 60f55613543c1c6429040bc8e9d8d713,
@@ -25055,6 +25061,7 @@ MonoBehaviour:
   player: {fileID: 0}
   plyrHealth: {fileID: 0}
   damage: 5
+  smkDmgMngr: {fileID: 0}
   isPlayer: 0
 --- !u!65 &883485637
 BoxCollider:
@@ -38396,7 +38403,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 187987230}
+      objectReference: {fileID: 187987224}
     - target: {fileID: 1476267834379102970, guid: 1066d11b997cac747b684bc6c11cf080,
         type: 3}
       propertyPath: plyrHealth
@@ -38641,6 +38648,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1641765054}
+    - target: {fileID: 1716470625928282989, guid: 60f55613543c1c6429040bc8e9d8d713,
+        type: 3}
+      propertyPath: recover
+      value: 
+      objectReference: {fileID: 187987228}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60f55613543c1c6429040bc8e9d8d713, type: 3}
 --- !u!1001 &3144158735705358548

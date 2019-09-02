@@ -17,9 +17,9 @@ public class Recover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach(GameObject asteroidSmoke in asteroidSmokes)
+        for (int i = 0; i < asteroidSmokes.Length; i++)
         {
-            SmokeDamage smkDamage = asteroidSmoke.GetComponent<SmokeDamage>();
+            SmokeDamage smkDamage = asteroidSmokes[i].GetComponent<SmokeDamage>();
 
             if (!smkDamage.isPlayer)
             {
