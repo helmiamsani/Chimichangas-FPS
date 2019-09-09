@@ -1,5 +1,74 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &350401629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 350401630}
+  - component: {fileID: 350401631}
+  m_Layer: 0
+  m_Name: Point Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &350401630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350401629}
+  m_LocalRotation: {x: 0.99712044, y: -0, z: -0, w: 0.075835116}
+  m_LocalPosition: {x: -0.2800007, y: 0.4441267, z: 2.4440744}
+  m_LocalScale: {x: 1, y: 0.72082055, z: 0.99346554}
+  m_Children: []
+  m_Father: {fileID: 2785634909258624419}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!108 &350401631
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350401629}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 1
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &2648094435340818481
 GameObject:
   m_ObjectHideFlags: 0
@@ -16,7 +85,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2785634909258624419
 Transform:
   m_ObjectHideFlags: 0
@@ -27,7 +96,8 @@ Transform:
   m_LocalRotation: {x: 0.075835116, y: -0, z: -0, w: 0.99712044}
   m_LocalPosition: {x: 0.2800007, y: -0.575, z: 1.08}
   m_LocalScale: {x: 1, y: 1.4, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 350401630}
   m_Father: {fileID: 3112905877158597915}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 8.698, y: 0, z: 0}
@@ -41,13 +111,13 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9284192, g: 0.9433962, b: 0.6096476, a: 1}
   m_Intensity: 20
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -81,7 +151,7 @@ GameObject:
   - component: {fileID: 3112905877158597914}
   - component: {fileID: 3112905877158597893}
   - component: {fileID: 9140603130168575309}
-  - component: {fileID: 63437364}
+  - component: {fileID: 520640683}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -169,23 +239,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minPitch: -80
   maxPitch: 80
-  rotSpeed: 5
---- !u!114 &63437364
+  rotSpeed: 2
+--- !u!114 &520640683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3112905877158597892}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d44b2b0be4fc74283021ae0a0121cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 8df2f074caa2b9a4789b76e5da4cf7f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minPitch: -80
-  maxPitch: 80
-  rotSpeed: 80
-  joystick: {fileID: 0}
+  asteroidPrefab: {fileID: 0}
 --- !u!1 &3112905877500824146
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +270,6 @@ GameObject:
   - component: {fileID: 2845661031593694442}
   - component: {fileID: 187987232}
   - component: {fileID: 187987225}
-  - component: {fileID: 1716470625928282989}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -321,7 +387,6 @@ MonoBehaviour:
   jumpSpeed: 8
   gravity: -30
   joystick: {fileID: 0}
-  lampu: {fileID: 3743443751044220957}
 --- !u!114 &2845661031593694442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc73d0460e5cdb4f90cfbdb20a7290d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWeapon: {fileID: 0}
+  currentWeapon: {fileID: 6359746488318273498}
 --- !u!114 &187987232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,8 +412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb9010532df3d84c953d88493667229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
+  maxHealth: 80
+  currentHealth: 80
   healthSlider: {fileID: 0}
   healthFill: {fileID: 0}
 --- !u!114 &187987225
@@ -363,22 +428,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29187c6ad0a84243b8fe8e12f873812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 0}
-  asteroidSmokes: []
---- !u!114 &1716470625928282989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3112905877500824146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef2b09abb1e48d64fae70d72f6d2f16a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  asteroidSmokes: []
+  health: {fileID: 187987232}
+  asteroidSmokes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  smkDamages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &3112905877665789599
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,3 +624,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8478147873963094244}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6359746488318273498 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3308515348570052414, guid: c9ebc9f839149224a853ba5b3fb909ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 8478147873963094244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6180c2616a0c1064eaf88347355202f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

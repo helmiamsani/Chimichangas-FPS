@@ -7,6 +7,11 @@ TagManager:
   - Shootable
   - FlashLight
   - SmokeDamage
+  - Asteroid
+  - Asteroid1
+  - Asteroid2
+  - ShootOrigin
+  - Health
   layers:
   - Default
   - TransparentFX

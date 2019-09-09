@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SmokeDamage : MonoBehaviour
 {
@@ -12,9 +13,9 @@ public class SmokeDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         plyrHealth = player.GetComponent<Health>();
-        smkDmgMngr = player.GetComponent<SmokeDamageManager>();
+        smkDmgMngr = GameObject.Find("GameManager").GetComponent<SmokeDamageManager>();
         isPlayer = false;
     }
 
@@ -28,7 +29,7 @@ public class SmokeDamage : MonoBehaviour
 
             if (plyrHealth.currentHealth <= 0)
             {
-                plyrHealth.currentHealth = 0;
+                plyrHealth.dead = true;
             }
         }
     }
@@ -39,6 +40,7 @@ public class SmokeDamage : MonoBehaviour
         {
             isPlayer = true;
         }
+
     }
 
     private void OnTriggerExit(Collider other)

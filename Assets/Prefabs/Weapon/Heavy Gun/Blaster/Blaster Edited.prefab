@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxReserve: 80
+  currentReserve: 0
   shotOrigin: {fileID: 3564905855427004857}
   bulletPrefabs: {fileID: 721324417779376537, guid: c27f1328dbd23a340b7fccb69b3d8448,
     type: 3}
@@ -414,7 +415,7 @@ GameObject:
   - component: {fileID: 3564905855427004857}
   m_Layer: 0
   m_Name: ShotOrigin
-  m_TagString: Untagged
+  m_TagString: ShootOrigin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

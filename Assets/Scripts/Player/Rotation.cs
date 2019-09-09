@@ -2,52 +2,69 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwipeRotation : MonoBehaviour
+public class Rotation : MonoBehaviour
 {
-    // >>> MANNY PUNYA <<<
     private Touch initialTouch = new Touch();
 
     //public Camera cam;
-    //public Player player;
+    public Player player;
     public float minPitch = -80f, maxPitch = 80f;
     public float rotSpeed = 0.8f;
-
+    private Vector2 speed = new Vector2(120f, 120f);
     private float scrW = Screen.width / 16;
-    private float scrH = Screen.height / 9;
+    //private float scrH = Screen.height / 9;
     private Vector2 euler;
+
+    private PlatformManager platform;
     // Start is called before the first frame update
     void Start()
     {
-        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        //cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        platform = GameObject.Find("GameManager").GetComponent<PlatformManager>();
         euler = transform.eulerAngles;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        // Right Part for Rotation
-        Rect rBounds = new Rect(8f * scrW,0, Screen.width, Screen.height);
-        // Left Part for Rotation
-        //Rect lBounds = new Rect(0, 0, Screen.width/2, Screen.height);
-
-        if (Input.touchCount > 0)
+        if (player.canMove)
         {
-            Touch frstTouch = Input.GetTouch(0);
-
-            if (rBounds.Contains(frstTouch.position))
+            if (platform.Mobile)
             {
-                Rotate(frstTouch);
+                // Right Part for Rotation
+                Rect rBounds = new Rect(8f * scrW, 0, Screen.width, Screen.height);
+
+                if (Input.touchCount > 0)
+                {
+                    Touch frstTouch = Input.GetTouch(0);
+
+                    if (rBounds.Contains(frstTouch.position))
+                    {
+                        Rotate(frstTouch);
+                    }
+                }
+
+                if (Input.touchCount > 1)
+                {
+                    Touch scndTouch = Input.GetTouch(1);
+
+                    if (rBounds.Contains(scndTouch.position))
+                    {
+                        Rotate(scndTouch);
+                    }
+                }
             }
-        }
 
-        if (Input.touchCount > 1)
-        {
-            Touch scndTouch = Input.GetTouch(1);
-
-            if (rBounds.Contains(scndTouch.position))
+            if (platform.PC)
             {
-                Rotate(scndTouch);
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+
+                euler.y += Input.GetAxis("Mouse X") * speed.x * Time.deltaTime;
+                euler.x -= Input.GetAxis("Mouse Y") * speed.y * Time.deltaTime;
+                euler.x = Mathf.Clamp(euler.x, minPitch, maxPitch);
+                transform.parent.localEulerAngles = new Vector3(0, euler.y, 0);
+                transform.localEulerAngles = new Vector3(euler.x, 0, 0);
             }
         }
     }

@@ -26,7 +26,7 @@ public class Floating : MonoBehaviour
         time += Time.deltaTime;
 
         Vector3 direction = this.transform.up;
-        rigid.AddForce(direction * floatSpeed, ForceMode.Force);
+        rigid.AddForce(direction * floatSpeed);
 
         if (time > firstAddForce)
         {

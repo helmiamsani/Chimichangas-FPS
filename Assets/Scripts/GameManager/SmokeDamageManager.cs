@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class SmokeDamageManager : MonoBehaviour
 {
-    public Recover recover;
-
-    [Header("Asteroid Smokes")]
-    public GameObject asteroidSmoke;
+    [Header("Telling Where the Player is??")]
+    public GameObject asteroidSmoke; // in which smokes does the player in
+    //[HideInInspector]
     public GameObject[] asteroidSmokes;
+
+    [Header("Reference")]
+    public Recover recover;
 
     // Start is called before the first frame update
     void Start()
     {
-        recover = GetComponent<Recover>();
+        recover = GameObject.FindGameObjectWithTag("Player").GetComponent<Recover>();
         asteroidSmokes = new GameObject[2];       
     }
 

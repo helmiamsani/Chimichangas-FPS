@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4546267253759461675}
   - component: {fileID: 4546267253759461676}
   - component: {fileID: 4546267253759461677}
+  - component: {fileID: 443839048}
   m_Layer: 0
   m_Name: Asteroid Smokes 3
   m_TagString: SmokeDamage
@@ -661,7 +662,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 0
+    type: 5
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -669,7 +670,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 20, y: 5, z: 20}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -4711,7 +4712,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 20, z: 20}
+  m_Size: {x: 39, y: 18, z: 36}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4546267253759461677
 MonoBehaviour:
@@ -4727,6 +4728,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   plyrHealth: {fileID: 0}
-  damage: 5
+  damage: 8
   smkDmgMngr: {fileID: 0}
   isPlayer: 0
+--- !u!114 &443839048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4546267253759461673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638141d564684f844b74931dd5806342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstSmoke: 1
+  secondSmoke: 0
+  smkDmgManager: {fileID: 0}
+  smkDamage: {fileID: 0}

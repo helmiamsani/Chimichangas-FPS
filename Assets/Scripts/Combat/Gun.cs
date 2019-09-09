@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
 {
     public int maxReserve = 80;
     public int currentReserve = 0;
+    public int damage = 10;
 
     public Transform shotOrigin;
     public GameObject bulletPrefabs;

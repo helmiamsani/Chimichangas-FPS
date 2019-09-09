@@ -20,11 +20,11 @@ public class CeilingLights : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
+        time += Time.deltaTime; // Time is counting
 
-        if(time > firstDelay)
+        if(time > firstDelay) // if time is more than the first delay
         {
-            firstDelay = time + lightDelay;
+            firstDelay = time + lightDelay; 
 
             chance = Random.Range(0, 2);
             if(chance == 0)
