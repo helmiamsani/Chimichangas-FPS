@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Combat : MonoBehaviour
 {
-    public Gun currentWeapon;
+    public Gun currentWeapon; // 
     private RayForShooting ray;
     private Player player;
     private PlatformManager platform;

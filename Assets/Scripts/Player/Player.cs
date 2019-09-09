@@ -101,35 +101,35 @@ public class Player : MonoBehaviour
         {
             if (platform.PC) // if it is in PC platform
             {
-                bool inputRun = Input.GetKeyDown(KeyCode.LeftShift); 
-                if (inputRun)
+                bool inputRun = Input.GetKeyDown(KeyCode.LeftShift); // inputRun stores Left Shift key (when it is held down)
+                if (inputRun) // if Left Shift key is held down
                 {
-                    _currentSpeed = runSpeed;
+                    _currentSpeed = runSpeed; // _currentSpeed set to runSpeed.
                 }
             }
 
-            if (platform.Mobile)
+            if (platform.Mobile) // if it is in Mobile platform
             {
-                _currentSpeed = runSpeed;
+                _currentSpeed = runSpeed; // _currentSpeed set to runSpeed.
             }
         }
     }
 
     public void Walk()
     {
-        if (canMove)
+        if (canMove) // if player can move
         {
-            if (platform.PC)
+            if (platform.PC) // if it is in PC platform
             {
-                bool inputWalk = Input.GetKeyUp(KeyCode.LeftShift);
-                if (inputWalk)
+                bool inputWalk = Input.GetKeyUp(KeyCode.LeftShift); // inputRun stores Left Shift key (when it is released)
+                if (inputWalk) // if Left Shift key is released
                 {
-                    _currentSpeed = walkSpeed;
+                    _currentSpeed = walkSpeed; // _currentSpeed set to walkSpeed.
                 }                
             }
-            if (platform.Mobile)
+            if (platform.Mobile) // if it is in Mobile platform
             {
-                _currentSpeed = walkSpeed;
+                _currentSpeed = walkSpeed; // _currentSpeed set to walkSpeed.
             }
         }
     }

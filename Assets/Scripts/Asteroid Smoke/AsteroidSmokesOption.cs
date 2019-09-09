@@ -5,7 +5,7 @@ using UnityEngine;
 public class AsteroidSmokesOption : MonoBehaviour
 {
     [Header("What smoke it is?")]
-    public bool firstSmoke;
+    public bool firstSmoke; // 
     public bool secondSmoke;
 
     [Header("References")]
