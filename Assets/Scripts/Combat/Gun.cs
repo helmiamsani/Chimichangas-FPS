@@ -8,10 +8,11 @@ public class Gun : MonoBehaviour
     public int maxReserve = 80;
     public int currentReserve = 0;
     public int damage = 10;
-
     public Transform shotOrigin;
     public GameObject bulletPrefabs;
     public Text textUI;
+    public AudioSource shootSound, recharge;
+
     private GameObject bulletClone;
     private bool isAttacking;
     private bool instantiateBullet;
@@ -30,20 +31,21 @@ public class Gun : MonoBehaviour
         {
             currentReserve--;
 
-            if(currentReserve <= 0)
+            if (currentReserve <= 0)
             {
                 currentReserve = 0;
                 Destroy(bulletClone);
+                shootSound.Stop();
             }
         }
 
         else if (!isAttacking)
         {
             currentReserve++;
-
             if (currentReserve >= maxReserve)
             {
                 currentReserve = maxReserve;
+                recharge.Stop();
             }
         }
         textUI.text = currentReserve.ToString();
@@ -59,6 +61,7 @@ public class Gun : MonoBehaviour
         {
             bulletClone = Instantiate(bulletPrefabs, shotOrigin.position, Quaternion.LookRotation(direction));
             instantiateBullet = true;
+            shootSound.Play();
         }
     }
 
@@ -67,5 +70,7 @@ public class Gun : MonoBehaviour
         isAttacking = false;
         instantiateBullet = false;
         Destroy(bulletClone);
+        shootSound.Stop();
+        recharge.Play();
     }
 }

@@ -29,11 +29,11 @@ public class CeilingLights : MonoBehaviour
             chance = Random.Range(0, 2);
             if(chance == 0)
             {
-                lightAnimator.SetBool("isTwiceOn", true);
+                lightAnimator.SetBool("isTwiceOn", true); // Set this animation to true.
             }
             else
             {
-                lightAnimator.SetBool("isTwiceOn", false);
+                lightAnimator.SetBool("isTwiceOn", false); // Set this animation to false.
             }
             
         }

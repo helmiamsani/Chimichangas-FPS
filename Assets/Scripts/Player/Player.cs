@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
         _isJumping = false; // _isJumping is set to false because player is on the ground
         _currentSpeed = walkSpeed; // _currentSpeed is set to walk speed
         platform = GameObject.Find("GameManager").GetComponent<PlatformManager>(); // Get PlatformManager from GameManager
+
     }
 
     // Update is called once per frame
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
                 Movement(inputH, inputV, _currentSpeed); // Movement function is called. 
                 Jump(); // Jump function is called
                 Run(); // Run function is called
+                Walk();
             }
 
             if (platform.Mobile)
